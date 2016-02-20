@@ -18,6 +18,6 @@ const history = browserHistory;
 render((
       <Provider store={store}>
         <Router history={history} routes={routes} />
-      </Providerlkjalksjd>
+      </Provider>
       )
      , document.getElementById('root'));
