@@ -4,93 +4,100 @@ import fetch from 'isomorphic-fetch';
 
 const baseURL = typeof window === 'undefined' ? process.env.BASE_URL || (`http://localhost:${(process.env.PORT || 8000)}`) : '';
 
-export function addPost(post) {
+export function addWorkplace(workPlace) {
   return {
-    type: ActionTypes.ADD_POST,
-    name: post.name,
-    title: post.title,
-    content: post.content,
-    slug: post.slug,
-    cuid: post.cuid,
-    _id: post._id,
+    type: ActionTypes.ADD_WORKPLACE,
+    title: workPlace.title,
+    content: workPlace.content,
+    companyName: workPlace.companyName,
+    companyUrl: workPlace.companyUrl,
+    startDate: workPlace.startDate,
+    endDate: workPlace.endDate,
+    slug: workPlace.slug,
+    cuid: workPlace.cuid,
+    _id: workPlace._id,
   };
 }
 
-export function changeSelectedPost(slug) {
+export function changeSelectedWorkplace(slug) {
   return {
-    type: ActionTypes.CHANGE_SELECTED_POST,
+    type: ActionTypes.CHANGE_SELECTED_WORKPLACE,
     slug,
   };
 }
 
-export function addPostRequest(post) {
+export function addWorkplaceRequest(workPlace) {
   return (dispatch) => {
-    fetch(`${baseURL}/api/addPost`, {
-      method: 'post',
+    fetch(`${baseURL}/api/addWorkplace`, {
+      method: 'workPlace',
       body: JSON.stringify({
-        post: {
-          name: post.name,
-          title: post.title,
-          content: post.content,
+        workPlace: {
+          name: workPlace.name,
+          title: workPlace.title,
+          content: workPlace.content,
+          companyName: workPlace.companyName,
+          companyUrl: workPlace.companyUrl,
+          startDate: workPlace.startDate,
+          endDate: workPlace.endDate,
         },
       }),
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-    }).then((res) => res.json()).then(res => dispatch(addPost(res.post)));
+  }).then((res) => res.json()).then(res => dispatch(addWorkplace(res.workPlace)));
   };
 }
 
-export function addSelectedPost(post) {
+export function addSelectedWorkplace(workPlace) {
   return {
-    type: ActionTypes.ADD_SELECTED_POST,
-    post,
+    type: ActionTypes.ADD_SELECTED_WORKPLACE,
+    workPlace,
   };
 }
 
-export function getPostRequest(post) {
+export function getWorkplaceRequest(workPlace) {
   return (dispatch) => {
-    return fetch(`${baseURL}/api/getPost?slug=${post}`, {
+    return fetch(`${baseURL}/api/getWorkplace?slug=${workPlace}`, {
       method: 'get',
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-    }).then((response) => response.json()).then(res => dispatch(addSelectedPost(res.post)));
+  }).then(response => response.json()).then(res => dispatch(addSelectedWorkplace(res.workPlace)));
   };
 }
 
-export function deletePost(post) {
+export function deleteWorkplace(workPlace) {
   return {
-    type: ActionTypes.DELETE_POST,
-    post,
+    type: ActionTypes.DELETE_WORKPLACE,
+    workPlace,
   };
 }
 
-export function addPosts(posts) {
+export function addWorkplaces(workPlaces) {
   return {
-    type: ActionTypes.ADD_POSTS,
-    posts,
+    type: ActionTypes.ADD_WORKPLACES,
+    workPlaces,
   };
 }
 
-export function fetchPosts() {
+export function fetchWorkplaces() {
   return (dispatch) => {
-    return fetch(`${baseURL}/api/getPosts`).
+    return fetch(`${baseURL}/api/getWorkplaces`).
       then((response) => response.json()).
-      then((response) => dispatch(addPosts(response.posts)));
+      then((response) => dispatch(addWorkplaces(response.workPlaces)));
   };
 }
 
-export function deletePostRequest(post) {
+export function deleteWorkplaceRequest(workPlace) {
   return (dispatch) => {
-    fetch(`${baseURL}/api/deletePost`, {
-      method: 'post',
+    fetch(`${baseURL}/api/deleteWorkplace`, {
+      method: 'workPlace',
       body: JSON.stringify({
-        postId: post._id,
+        workPlaceId: workPlace._id,
       }),
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-    }).then(() => dispatch(deletePost(post)));
+  }).then(() => dispatch(deleteWorkplace(workPlace)));
   };
 }
