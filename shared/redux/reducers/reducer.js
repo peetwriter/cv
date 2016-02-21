@@ -1,42 +1,45 @@
 import * as ActionTypes from '../constants/constants';
 
-const initialState = { posts: [], selectedPost: null };
+const initialState = { workPlaces: [], selectedWorkPlace: null };
 
-const postReducer = (state = initialState, action) => {
+const workPlaceReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.ADD_POST :
+    case ActionTypes.ADD_WORKPLACE :
       return {
-        posts: [{
-          name: action.name,
-          title: action.title,
-          content: action.content,
-          slug: action.slug,
-          cuid: action.cuid,
-          _id: action._id,
-        }].concat(state.posts),
-        post: state.post };
+        workPlaces: [{
+            title: action.title,
+            content: action.content,
+            companyName: action.companyName,
+            companyUrl: action.companyUrl,
+            startDate: action.startDate,
+            endDate: action.endDate,
+            slug: action.slug,
+            cuid: action.cuid,
+            _id: action._id,
+      }].concat(state.workPlaces),
+        workPlace: state.workPlace };
 
-    case ActionTypes.CHANGE_SELECTED_POST :
+    case ActionTypes.CHANGE_SELECTED_WORKPLACE :
       return {
-        posts: state.posts,
-        post: action.slug,
+        workPlaces: state.workPlaces,
+        workPlace: action.slug,
       };
 
-    case ActionTypes.ADD_POSTS :
+    case ActionTypes.ADD_WORKPLACES :
       return {
-        posts: action.posts,
-        post: state.post,
+        workPlaces: action.workPlaces,
+        workPlace: state.workPlace,
       };
 
-    case ActionTypes.ADD_SELECTED_POST :
+    case ActionTypes.ADD_SELECTED_WORKPLACE :
       return {
-        post: action.post,
-        posts: state.posts,
+        workPlace: action.workPlace,
+        workPlaces: state.workPlaces,
       };
 
-    case ActionTypes.DELETE_POST :
+    case ActionTypes.DELETE_WORKPLACE :
       return {
-        posts: state.posts.filter((post) => post._id !== action.post._id),
+        workPlaces: state.workPlaces.filter((workPlace) => workPlace._id !== action.workPlace._id),
       };
 
     default:
@@ -44,4 +47,4 @@ const postReducer = (state = initialState, action) => {
   }
 };
 
-export default postReducer;
+export default workPlaceReducer;
