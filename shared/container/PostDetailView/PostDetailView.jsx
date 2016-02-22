@@ -5,7 +5,7 @@ import * as Actions from '../../redux/actions/actions';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
-class PostDetailView extends Component {
+class WorkPlaceDetailView extends Component {
 
   constructor(props, context) {
     super(props, context);
@@ -15,12 +15,12 @@ class PostDetailView extends Component {
 
   handleClick() {
     this.setState({
-      showAddPost: true,
+      showAddWorkPlace: true,
     });
   }
 
   handleLogoClick() {
-    this.props.dispatch(Actions.fetchPosts());
+    this.props.dispatch(Actions.fetchWorkplaces());
   }
 
   render() {
