@@ -29,9 +29,9 @@ class WorkPlaceDetailView extends Component {
         <Header onClick={function noop() {}} handleLogoClick={this.handleLogoClick}/>
         <div className="container">
           <div className="single-post post-detail">
-            <h3 className="post-title">{this.props.post.title}</h3>
-            <p className="author-name">By {this.props.post.name}</p>
-            <p className="post-desc">{this.props.post.content}</p>
+            <h3 className="post-title">{this.props.workPlace.title}</h3>
+            <p className="author-name">By {this.props.workPlace.name}</p>
+            <p className="post-desc">{this.props.workPlace.content}</p>
           </div>
         </div>
         <Footer />
@@ -40,29 +40,29 @@ class WorkPlaceDetailView extends Component {
   }
 }
 
-PostDetailView.need = [(params) => {
-  return Actions.getPostRequest.bind(null, params.slug)();
+WorkPlaceDetailView.need = [(params) => {
+  return Actions.getWorkPlaceRequest.bind(null, params.slug)();
 }];
 
-PostDetailView.contextTypes = {
+WorkPlaceDetailView.contextTypes = {
   router: React.PropTypes.object,
 };
 
-PostDetailView.propTypes = {
-  post: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+WorkPlaceDetailView.propTypes = {
+  workPlace: PropTypes.shape({
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
+    startDate: PropTypes.string.isRequired
   }).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(store) {
   return {
-    post: (store.post),
+    workPlace: (store.workPlace),
   };
 }
 
-export default connect(mapStateToProps)(PostDetailView);
+export default connect(mapStateToProps)(WorkPlaceDetailView);
