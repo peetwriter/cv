@@ -70,15 +70,4 @@ WorkPlaceContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-WorkPlaceDetailView.propTypes = {
-  workPlace: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-    cuid: PropTypes.string.isRequired,
-    startDate: PropTypes.string.isRequired
-  }).isRequired,
-  dispatch: PropTypes.func.isRequired,
-};
-
 export default connect(mapStateToProps)(WorkPlaceContainer);
