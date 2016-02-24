@@ -1,17 +1,17 @@
 /* eslint no-unused-vars:0 */
 import React, { PropTypes, Component } from 'react';
-import PostListView from '../PostListView/PostListView';
-import PostCreateView from '../../components/PostCreateView/PostCreateView';
+import WorkPlaceListView from '../WorkPlaceListView/WorkPlaceListView';
+import WorkPlaceCreateView from '../../components/WorkPlaceCreateView/WorkPlaceCreateView';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { connect } from 'react-redux';
 import * as Actions from '../../redux/actions/actions';
 
-class PostContainer extends Component {
+class WorkPlaceContainer extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      showAddPost: false,
+      showAddWorkPlace: false,
     };
     this.handleClick = this.handleClick.bind(this);
     this.add = this.add.bind(this);
@@ -19,16 +19,16 @@ class PostContainer extends Component {
 
   handleClick(e) {
     this.setState({
-      showAddPost: !this.state.showAddPost,
+      showAddWorkPlace: !this.state.showAddWorkPlace,
     });
 
     e.preventDefault();
   }
 
   add(name, title, content) {
-    this.props.dispatch(Actions.addPostRequest({ name, title, content }));
+    this.props.dispatch(Actions.addWorkPlaceRequest({ name, title, content }));
     this.setState({
-      showAddPost: false,
+      showAddWorkPlace: false,
     });
   }
 
@@ -37,10 +37,10 @@ class PostContainer extends Component {
       <div>
         <Header onClick={this.handleClick} />
         <div className="container">
-          <PostCreateView addPost={this.add}
-            showAddPost={this.state.showAddPost}
+          <WorkPlaceCreateView addWorkPlace={this.add}
+            showAddWorkPlace={this.state.showAddWorkPlace}
           />
-          <PostListView posts={this.props.posts}/>
+          <WorkPlaceListView workplaces={this.props.workplaces}/>
         </div>
         <Footer />
       </div>
@@ -48,24 +48,37 @@ class PostContainer extends Component {
   }
 }
 
-PostContainer.need = [() => { return Actions.fetchPosts(); }];
-PostContainer.contextTypes = {
+WorkPlaceContainer.need = [() => { return Actions.fetchWorkPlaces(); }];
+WorkPlaceContainer.contextTypes = {
   router: React.PropTypes.object,
 };
 
 function mapStateToProps(store) {
   return {
-    posts: store.posts,
+    workplaces: store.workplaces,
   };
 }
 
-PostContainer.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
+WorkPlaceContainer.propTypes = {
+  workplaces: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    cuid: PropTypes.string.isRequired,
+    startDate: PropTypes.string.isRequired
   })).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps)(PostContainer);
+WorkPlaceDetailView.propTypes = {
+  workPlace: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    cuid: PropTypes.string.isRequired,
+    startDate: PropTypes.string.isRequired
+  }).isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps)(WorkPlaceContainer);
