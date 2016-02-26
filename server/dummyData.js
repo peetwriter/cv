@@ -2,7 +2,6 @@ import WorkPlace from './models/workPlace';
 
 export default function () {
   WorkPlace.count().exec((err, count) => {
-    console.log(count);
     if (count > 0) {
         console.log("count is more than one");
         return;
@@ -40,16 +39,15 @@ export default function () {
         slug: 'hello-mern',
         cuid: 'cikqgkv4q01ck7453ualdn3hd',
         content: content1,
-        startDate: Date.now,
-        endDate: Date.now,
+        startDate: Date.now(),
+        endDate: Date.now(),
         companyName: "ciklum",
         companyUrl: "ciklim.com"
     }
     const workPlace1 = new WorkPlace(workPlace);
-    // const workPlace2 = new WorkPlace({ title: 'Lorem Ipsum', slug: 'lorem-ipsum', cuid: 'cikqgkv4q01ck7453ualdn3hf', content: content2, startDate: Date.now, endDate: Date.now, companyName: "softheme", companyUrl: "softheme.com" });
-    console.log(workPlace1);
+    const workPlace2 = new WorkPlace({ title: 'Lorem Ipsum', slug: 'lorem-ipsum', cuid: 'cikqgkv4q01ck7453ualdn3hf', content: content2, startDate: Date.now(), endDate: Date.now(), companyName: "softheme", companyUrl: "softheme.com" });
 
-    WorkPlace.create([workPlace1], (error, saved) => {
+    WorkPlace.create([workPlace1, workPlace2], (error, saved) => {
       if (!error) {
         console.log('ready to go....');
       }
