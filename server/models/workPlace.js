@@ -6,7 +6,7 @@ const workPlaceSchema = new Schema({
   content: { type: 'String', required: true },
   companyName: {type: 'String', required: false },
   companyUrl: {type: 'String', required: false },
-  startDate: { type: 'Date', required: true },
+  startDate: { type: 'Date', required: false },
   endDate: { type: 'Date', required: false },
   slug: { type: 'String', required: true },
   cuid: { type: 'String', required: true },
