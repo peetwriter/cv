@@ -26,7 +26,7 @@ class WorkPlaceContainer extends Component {
   }
 
   add(name, title, content) {
-    this.props.dispatch(Actions.addWorkPlaceRequest({ name, title, content }));
+    this.props.dispatch(Actions.addWorkplaceRequest({ name, title, content }));
     this.setState({
       showAddWorkPlace: false,
     });
@@ -48,7 +48,9 @@ class WorkPlaceContainer extends Component {
   }
 }
 
-WorkPlaceContainer.need = [() => { return Actions.fetchWorkPlaces(); }];
+WorkPlaceContainer.need = [() => {
+    return Actions.fetchWorkplaces();
+}];
 WorkPlaceContainer.contextTypes = {
   router: React.PropTypes.object,
 };
