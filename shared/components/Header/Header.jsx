@@ -12,7 +12,7 @@ function Header(props, context) {
         </h1>
         {
           context.router.isActive('/', true)
-            ? <a className="add-post-button" href="#" onClick={props.onClick}>Add Post</a>
+            ? <a className="add-post-button" href="#" onClick={props.onClick}>Add WorkPlace</a>
             : null
         }
       </div>

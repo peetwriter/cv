@@ -19,7 +19,7 @@ function WorkPlaceListItem(props, context) {
 }
 
 WorkPlaceListItem.propTypes = {
-  post: PropTypes.shape({
+  workPlace: PropTypes.shape({
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     startDate: PropTypes.string.isRequired,

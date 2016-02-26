@@ -4,11 +4,11 @@ import slug from 'slug';
 import sanitizeHtml from 'sanitize-html';
 
 export function getWorkPlaces(req, res) {
-  WorkPlace.find().sort('-startDate').exec((err, posts) => {
+  WorkPlace.find().sort('-startDate').exec((err, workPlaces) => {
     if (err) {
       return res.status(500).send(err);
     }
-    res.json({ posts });
+    res.json({ workPlaces });
   });
 }
 

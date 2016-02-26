@@ -5,7 +5,7 @@ import app from '../server';
 import chai from 'chai';
 import request from 'supertest';
 import mongoose from 'mongoose';
-import Post from '../models/post';
+import WorkPlace from '../models/workPlace';
 
 const expect = chai.expect;
 
