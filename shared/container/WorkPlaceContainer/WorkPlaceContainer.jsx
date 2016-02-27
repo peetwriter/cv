@@ -40,7 +40,7 @@ class WorkPlaceContainer extends Component {
           <WorkPlaceCreateView addWorkPlace={this.add}
             showAddWorkPlace={this.state.showAddWorkPlace}
           />
-          <WorkPlaceListView workplaces={this.props.workplaces}/>
+          <WorkPlaceListView workPlaces={this.props.workPlaces}/>
         </div>
         <Footer />
       </div>
@@ -57,17 +57,20 @@ WorkPlaceContainer.contextTypes = {
 
 function mapStateToProps(store) {
   return {
-    workplaces: store.workplaces,
+    workPlaces: store.workPlaces,
   };
 }
 
 WorkPlaceContainer.propTypes = {
-  workplaces: PropTypes.arrayOf(PropTypes.shape({
+  workPlaces: PropTypes.arrayOf(PropTypes.shape({
+    startDate: React.PropTypes.instanceOf(Date).isRequired,
+    endDate: React.PropTypes.instanceOf(Date),
+    companyName: PropTypes.string,
+    companyUrl: PropTypes.string,
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
-    startDate: PropTypes.string.isRequired
   })).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
