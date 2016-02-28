@@ -22,7 +22,10 @@ WorkPlaceListItem.propTypes = {
   workPlace: PropTypes.shape({
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
-    startDate: PropTypes.string.isRequired,
+    startDate: React.PropTypes.instanceOf(Date).isRequired,
+    endDate: React.PropTypes.instanceOf(Date),
+    companyName: PropTypes.string,
+    companyUrl: PropTypes.string,
     slug: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
   }).isRequired,

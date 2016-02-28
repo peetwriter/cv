@@ -27,11 +27,14 @@ function WorkPlaceListView(props, context) {
 
 WorkPlaceListView.propTypes = {
   workPlaces: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-      cuid: PropTypes.string.isRequired,
-      startDate: PropTypes.string.isRequired
+    startDate: React.PropTypes.instanceOf(Date).isRequired,
+    endDate: React.PropTypes.instanceOf(Date),
+    companyName: PropTypes.string,
+    companyUrl: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    cuid: PropTypes.string.isRequired,
   })).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
