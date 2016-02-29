@@ -12,6 +12,9 @@ function WorkPlaceListItem(props, context) {
         </Link>
       </h3>
       <p className="post-desc">{props.workPlace.content}</p>
+      <p className="post-date"> Started From {props.workPlace.startDate}</p>
+      <p className="post-date"> Ended {props.workPlace.endDate}</p>
+
       <p className="post-action"><a href="#" onClick={props.onDelete}>Delete WorkPlace</a></p>
       <hr className="divider"/>
     </div>

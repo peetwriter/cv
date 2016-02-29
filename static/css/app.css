@@ -14,7 +14,7 @@
 ::-moz-placeholder {
 	color:#aaa;
 	font-weight: 300;
-} 
+}
 :-ms-input-placeholder {
 	color:#aaa;
 	font-weight: 300;
@@ -128,6 +128,12 @@ body {
 .single-post .post-desc{
 	font-size: 14px;
 	color: #888;
+	margin-bottom: 8px;
+}
+
+.single-post .post-date{
+	font-size: 20px;
+	color: #4081DF;
 	margin-bottom: 8px;
 }
 

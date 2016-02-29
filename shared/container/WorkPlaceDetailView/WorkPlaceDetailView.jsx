@@ -41,7 +41,7 @@ class WorkPlaceDetailView extends Component {
 }
 
 WorkPlaceDetailView.need = [(params) => {
-  return Actions.getWorkPlaceRequest.bind(null, params.slug)();
+  return Actions.getWorkplaceRequest.bind(null, params.slug)();
 }];
 
 WorkPlaceDetailView.contextTypes = {
