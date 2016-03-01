@@ -23,11 +23,13 @@ class WorkPlaceCreateView extends Component {
     return (
       <div className={cls}>
         <div className="form-content">
-          <h2 className="form-title">Create new post</h2>
+          <h2 className="form-title">Add a new work place</h2>
           <input placeholder="WorkPlace Title" className="form-field" ref="title"/>
           <input placeholder="Start Date" className="form-field" ref="startDate"/>
           <input placeholder="End Date" className="form-field" ref="endDate"/>
-          <textarea placeholder="WorkPlace Content" className="form-field" ref="content"></textarea>
+          <input placeholder="Company Name" className="form-field" ref="endDate"/>
+          <input placeholder="Company Website" className="form-field" ref="endDate"/>
+          <textarea placeholder="WorkPlace description" className="form-field" ref="content"></textarea>
           <a className="post-submit-button align-right" href="#" onClick={this.addWorkPlace}>Submit</a>
         </div>
       </div>
