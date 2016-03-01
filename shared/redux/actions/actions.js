@@ -4,7 +4,7 @@ import fetch from 'isomorphic-fetch';
 
 const baseURL = typeof window === 'undefined' ? process.env.BASE_URL || (`http://localhost:${(process.env.PORT || 8000)}`) : '';
 
-export function addWorkplace(workPlace) {
+export function addWorkPlace(workPlace) {
   return {
     type: ActionTypes.ADD_WORKPLACE,
     title: workPlace.title,
@@ -19,17 +19,17 @@ export function addWorkplace(workPlace) {
   };
 }
 
-export function changeSelectedWorkplace(slug) {
+export function changeSelectedWorkPlace(slug) {
   return {
     type: ActionTypes.CHANGE_SELECTED_WORKPLACE,
     slug,
   };
 }
 
-export function addWorkplaceRequest(workPlace) {
+export function addWorkPlaceRequest(workPlace) {
   return (dispatch) => {
-    fetch(`${baseURL}/api/addWorkplace`, {
-      method: 'workPlace',
+    fetch(`${baseURL}/api/addWorkPlace`, {
+      method: 'post',
       body: JSON.stringify({
         workPlace: {
           name: workPlace.name,
@@ -44,60 +44,60 @@ export function addWorkplaceRequest(workPlace) {
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-  }).then((res) => res.json()).then(res => dispatch(addWorkplace(res.workPlace)));
+  }).then((res) => res.json()).then(res => dispatch(addWorkPlace(res.workPlace)));
   };
 }
 
-export function addSelectedWorkplace(workPlace) {
+export function addSelectedWorkPlace(workPlace) {
   return {
     type: ActionTypes.ADD_SELECTED_WORKPLACE,
     workPlace,
   };
 }
 
-export function getWorkplaceRequest(workPlace) {
+export function getWorkPlaceRequest(workPlace) {
   return (dispatch) => {
-    return fetch(`${baseURL}/api/getWorkplace?slug=${workPlace}`, {
+    return fetch(`${baseURL}/api/getWorkPlace?slug=${workPlace}`, {
       method: 'get',
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-  }).then(response => response.json()).then(res => dispatch(addSelectedWorkplace(res.workPlace)));
+  }).then(response => response.json()).then(res => dispatch(addSelectedWorkPlace(res.workPlace)));
   };
 }
 
-export function deleteWorkplace(workPlace) {
+export function deleteWorkPlace(workPlace) {
   return {
     type: ActionTypes.DELETE_WORKPLACE,
     workPlace,
   };
 }
 
-export function addWorkplaces(workPlaces) {
+export function addWorkPlaces(workPlaces) {
   return {
     type: ActionTypes.ADD_WORKPLACES,
     workPlaces,
   };
 }
 
-export function fetchWorkplaces() {
+export function fetchWorkPlaces() {
   return (dispatch) => {
-    return fetch(`${baseURL}/api/getWorkplaces`).
+    return fetch(`${baseURL}/api/getWorkPlaces`).
       then((response) => response.json()).
-      then((response) => dispatch(addWorkplaces(response.workPlaces)));
+      then((response) => dispatch(addWorkPlaces(response.workPlaces)));
   };
 }
 
-export function deleteWorkplaceRequest(workPlace) {
+export function deleteWorkPlaceRequest(workPlace) {
   return (dispatch) => {
-    fetch(`${baseURL}/api/deleteWorkplace`, {
-      method: 'workPlace',
+    fetch(`${baseURL}/api/deleteWorkPlace`, {
+      method: 'post',
       body: JSON.stringify({
         workPlaceId: workPlace._id,
       }),
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-  }).then(() => dispatch(deleteWorkplace(workPlace)));
+  }).then(() => dispatch(deleteWorkPlace(workPlace)));
   };
 }

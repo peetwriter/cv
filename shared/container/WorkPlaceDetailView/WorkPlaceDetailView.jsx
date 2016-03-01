@@ -20,7 +20,7 @@ class WorkPlaceDetailView extends Component {
   }
 
   handleLogoClick() {
-    this.props.dispatch(Actions.fetchWorkplaces());
+    this.props.dispatch(Actions.fetchWorkPlaces());
   }
 
   render() {
@@ -41,7 +41,7 @@ class WorkPlaceDetailView extends Component {
 }
 
 WorkPlaceDetailView.need = [(params) => {
-  return Actions.getWorkplaceRequest.bind(null, params.slug)();
+  return Actions.getWorkPlaceRequest.bind(null, params.slug)();
 }];
 
 WorkPlaceDetailView.contextTypes = {
