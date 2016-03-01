@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars*/
 /* eslint-disable prefer-template*/
 import React, { Component, PropTypes } from 'react';
+var DatePicker = require('react-datepicker');
+var moment = require('moment');
+require('react-datepicker/dist/react-datepicker.css');
 
 class WorkPlaceCreateView extends Component {
   constructor(props, context) {
@@ -26,6 +29,7 @@ class WorkPlaceCreateView extends Component {
           <h2 className="form-title">Add a new work place</h2>
           <input placeholder="WorkPlace Title" className="form-field" ref="title"/>
           <input placeholder="Start Date" className="form-field" ref="startDate"/>
+          <DatePicker/>
           <input placeholder="End Date" className="form-field" ref="endDate"/>
           <input placeholder="Company Name" className="form-field" ref="endDate"/>
           <input placeholder="Company Website" className="form-field" ref="endDate"/>
