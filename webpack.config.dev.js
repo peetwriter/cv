@@ -25,8 +25,8 @@ module.exports = {
         loader: 'style!css?modules',
       },
       {
-          test: /\.less$/,
-          loader: 'style!css!less'
+        test: /\.less$/,
+        loader: 'style!css!less'
       },
       {
         test: /\.jsx*$/,
