@@ -25,6 +25,10 @@ module.exports = {
         loader: 'style!css?modules',
       },
       {
+          test: /\.less$/,
+          loader: 'style!css!less'
+      },
+      {
         test: /\.jsx*$/,
         exclude: [/node_modules/, /.+\.config.js/],
         loader: 'babel',

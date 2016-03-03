@@ -62,7 +62,10 @@ export function getWorkPlaceRequest(workPlace) {
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-  }).then(response => response.json()).then(res => dispatch(addSelectedWorkPlace(res.workPlace)));
+  }).then(response => response.json()).then(res => {
+      console.log("==================================");
+      dispatch(addSelectedWorkPlace(res.workPlace))
+  });
   };
 }
 
@@ -84,7 +87,17 @@ export function fetchWorkPlaces() {
   return (dispatch) => {
     return fetch(`${baseURL}/api/getWorkPlaces`).
       then((response) => response.json()).
-      then((response) => dispatch(addWorkPlaces(response.workPlaces)));
+      then((response) => {
+        //   response.workPlaces.foreach(workPlace => {
+        //     workPlace.startDate = Date(workPlace.startDate);
+        //     workPlace.endDate = Date(workPlace.endDate);
+        //   });
+          console.log("-------in fetch workPlaces-------");
+          console.log(response.workPlaces);
+          return dispatch(addWorkPlaces(response.workPlaces))
+        }
+      );
+
   };
 }
 
