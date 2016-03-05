@@ -1,6 +1,7 @@
 /* eslint no-unused-vars: 0 */
 import * as ActionTypes from '../constants/constants';
 import fetch from 'isomorphic-fetch';
+import _ from 'lodash'
 
 const baseURL = typeof window === 'undefined' ? process.env.BASE_URL || (`http://localhost:${(process.env.PORT || 8000)}`) : '';
 
@@ -86,15 +87,19 @@ export function addWorkPlaces(workPlaces) {
 export function fetchWorkPlaces() {
   return (dispatch) => {
     return fetch(`${baseURL}/api/getWorkPlaces`).
-      then((response) => response.json()).
+    then((response) =>
+      {
+          return response.json()
+      }).
       then((response) => {
-        //   response.workPlaces.foreach(workPlace => {
-        //     workPlace.startDate = Date(workPlace.startDate);
-        //     workPlace.endDate = Date(workPlace.endDate);
-        //   });
-          console.log("-------in fetch workPlaces-------");
-          console.log(response.workPlaces);
-          return dispatch(addWorkPlaces(response.workPlaces))
+          _.forEach(response.workPlaces, workPlace => {
+             workPlace.startDate = new Date();
+             console.log(workPlace.startDate);
+             console.log("===============");
+            //   workPlace.startDate = new Date(workPlace.startDate);
+            //   workPlace.endDate = new Date(workPlace.endDate);
+          })
+          return dispatch(addWorkPlaces(response.workPlaces));
         }
       );
 

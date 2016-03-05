@@ -5,8 +5,6 @@ import sanitizeHtml from 'sanitize-html';
 
 export function getWorkPlaces(req, res) {
   WorkPlace.find().sort('-startDate').exec((err, workPlaces) => {
-    console.log("====== in get workPlaces ======= ");
-    console.log(workPlaces);
     if (err) {
       return res.status(500).send(err);
     }
