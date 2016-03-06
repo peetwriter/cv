@@ -64,7 +64,6 @@ export function getWorkPlaceRequest(workPlace) {
         'Content-Type': 'application/json',
       }),
   }).then(response => response.json()).then(res => {
-      console.log("==================================");
       dispatch(addSelectedWorkPlace(res.workPlace))
   });
   };
@@ -92,13 +91,6 @@ export function fetchWorkPlaces() {
           return response.json()
       }).
       then((response) => {
-          _.forEach(response.workPlaces, workPlace => {
-             workPlace.startDate = new Date();
-             console.log(workPlace.startDate);
-             console.log("===============");
-            //   workPlace.startDate = new Date(workPlace.startDate);
-            //   workPlace.endDate = new Date(workPlace.endDate);
-          })
           return dispatch(addWorkPlaces(response.workPlaces));
         }
       );

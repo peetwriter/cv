@@ -2,6 +2,7 @@ import WorkPlace from '../models/workPlace';
 import cuid from 'cuid';
 import slug from 'slug';
 import sanitizeHtml from 'sanitize-html';
+import _ from 'lodash'
 
 export function getWorkPlaces(req, res) {
   WorkPlace.find().sort('-startDate').exec((err, workPlaces) => {

@@ -63,8 +63,8 @@ function mapStateToProps(store) {
 
 WorkPlaceContainer.propTypes = {
   workPlaces: PropTypes.arrayOf(PropTypes.shape({
-    startDate: React.PropTypes.instanceOf(Date).isRequired,
-    endDate: React.PropTypes.instanceOf(Date),
+    startDate: PropTypes.string.isRequired,
+    endDate: PropTypes.string,
     companyName: PropTypes.string,
     companyUrl: PropTypes.string,
     title: PropTypes.string.isRequired,
