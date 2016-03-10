@@ -4,6 +4,7 @@ import WorkPlaceListView from '../container/WorkPlaceListView/WorkPlaceListView'
 import WorkPlaceCreateView from '../components/WorkPlaceCreateView/WorkPlaceCreateView';
 import { connect } from 'react-redux';
 import * as Actions from '../redux/actions/actions';
+import 'react-datepicker/dist/react-datepicker.css';
 
 class App extends Component {
   constructor(props, context) {

@@ -9,6 +9,8 @@ import WorkPlaceListView from '../shared/container/WorkPlaceListView/WorkPlaceLi
 import WorkPlaceDetailView from '../shared/container/WorkPlaceDetailView/WorkPlaceDetailView';
 import { Router, browserHistory, Route, IndexRoute, match } from 'react-router';
 import routes from '../shared/routes';
+import 'react-datepicker/dist/react-datepicker.css';
+import "react-day-picker/lib/style.css";
 
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 
