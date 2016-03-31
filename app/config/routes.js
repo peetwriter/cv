@@ -14,7 +14,7 @@ var routes = (
     <Router history={hashHistory}>
         <Route path="/" component={Main}>
             <IndexRoute path="" component={Home}/>
-            <Route path="workpalces" component={WorkPlaceContainer}></Route>
+            <Route path="workplaces" component={WorkPlaceContainer}></Route>
         </Route>
     </Router>
 )

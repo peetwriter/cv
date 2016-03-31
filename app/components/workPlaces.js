@@ -3,8 +3,10 @@ var PropTypes = React.PropTypes;
 var WorkPlace = require('./workPlace');
 
 function WorkPlaces (props) {
-    return (
-        <div>
+    console.log(props);
+    return props.isLoading === true
+        ? <p>Loading..</p>
+        : <div>
             {props.workPlaces.map(x => WorkPlace({
                     startDate: x.startDate,
                     endDate: x.endDate,
@@ -16,7 +18,7 @@ function WorkPlaces (props) {
                 })
             )}
         </div>
-    )
+
 }
 
 WorkPlaces.propTypes = {

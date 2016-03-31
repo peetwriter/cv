@@ -13,10 +13,10 @@ var WorkPlacesContainer = React.createClass({
         }
     },
     componentDidMount: function () {
-        console.log(workPlacesData);
+        console.log(workPlacesData.workPlaces);
         this.setState({
             isLoading: false,
-            workPlaces: workPlaces
+            workPlaces: workPlacesData.workPlaces
         });
     },
     render: function (){
