@@ -1,8 +1,8 @@
-var React = require("react");
+import React from 'react';
 
 function MainContainer (props) {
     return(
-        <div className="jumbotrone col-sm-12 text-center">
+        <div className="container text-center">
             {props.children}
         </div>
     )

@@ -1,5 +1,5 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
+import React from 'react';
+import {PropTypes} from 'react';
 
 function WorkPlace (props) {
     return (
@@ -19,4 +19,4 @@ WorkPlace.propTypes = {
     title: PropTypes.string
 }
 
-module.exports = WorkPlace;
+export default WorkPlace;

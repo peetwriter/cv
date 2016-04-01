@@ -1,19 +1,17 @@
-var React = require('react');
-var ReactRouter = require('react-router');
-var Link = ReactRouter.Link;
-var MainContainer = require("../containers/mainContainer");
+import React from 'react';
+import ReactRouter from 'react-router';
+import {Link} from "react-router";
+import MainContainer from "../containers/mainContainer";
+import WorkPlacesContainer from "../containers/WorkPlacesContainer";
 
-var Home = React.createClass({
-    render: function(){
+class Home extends React.Component{
+    render() {
         return(
             <MainContainer>
-                <h1>Home</h1>
-                <Link to="/workplaces">
-                    <button type="button" className="btn btn-large btn-success">See workplaces</button>
-                </Link>
+                <WorkPlacesContainer/>
             </MainContainer>
         )
     }
-});
+};
 
-module.exports = Home;
+export default Home;
