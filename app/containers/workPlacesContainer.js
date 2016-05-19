@@ -13,7 +13,6 @@ class WorkPlacesContainer extends React.Component{
         }
     }
     componentDidMount() {
-        console.log(this);
         this.setState({
             isLoading: false,
             workPlaces: workPlacesData.workPlaces

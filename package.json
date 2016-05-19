@@ -5,15 +5,18 @@
   "main": "index.js",
   "scripts": {
     "production": "webpack -p",
-    "start": "webpack-dev-server --progress --colors --port 8090"
+    "start": "webpack-dev-server --progress --colors --port 8091"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.9.1",
+    "classnames": "^2.2.5",
     "css-loader": "^0.23.1",
+    "d3-react-simple-timeline": "^0.1.5",
     "es6-promise": "^3.1.2",
     "json-loader": "^0.5.4",
+    "object-assign": "^4.1.0",
     "react": "^0.14.7",
     "react-addons-css-transition-group": "^0.14.7",
     "react-dom": "^0.14.7",
